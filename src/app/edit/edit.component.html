@@ -14,7 +14,7 @@
 <form
   novalidate
   #userProfileForm="ngForm"
-  (ngSubmit)="setUserProfile(userProfileForm)"
+  (ngSubmit)="setUserProfile(userProfile)"
 >
   <h4>Use the form below to update your profile.</h4>
   <p class="avatarText">Select your avatar</p>
@@ -31,12 +31,19 @@
       alt=""
     />
   </div>
-
   <label class="leftLabel" for="name">Name</label>
-  <input type="text" name="name" [(ngModel)]="userProfileForm.name" />
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="profileService.userProfile.name"
+  />
   <label class="leftLabel" for="contact">Contact</label>
-  <input type="text" name="contact" [(ngModel)]="userProfileForm.contact" />
+  <input
+    type="text"
+    name="contact"
+    [(ngModel)]="profileService.userProfile.contact"
+  />
   <label class="leftLabel" for="bio">Bio</label>
-  <textarea name="bio" [(ngModel)]="userProfileForm.bio"></textarea>
+  <textarea name="bio" [(ngModel)]="profileService.userProfile.bio"></textarea>
   <button>Update</button>
 </form>

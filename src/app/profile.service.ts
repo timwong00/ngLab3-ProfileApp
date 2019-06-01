@@ -42,11 +42,28 @@ export class ProfileService {
   }
 
   setUserProfile(updatedProfile): any {
-    this.userProfile = { ...updatedProfile };
+    // console.log(updatedProfile.name);
+    // console.log(updatedProfile.contact);
+    // console.log(updatedProfile.bio);
+    // console.log({ ...updatedProfile });
+    // this.userProfile = { ...updatedProfile };
+    this.userProfile.name = updatedProfile.name;
+    this.userProfile.contact = updatedProfile.contact;
+    this.userProfile.bio = updatedProfile.bio;
     this.router.navigate(["/profile"]);
     // console.log(this.userProfile);
     return this.userProfile;
   }
+
+  // setUserProfile(updatedProfile): any {
+  //   console.log(updatedProfile.target.elements[0].value);
+  //   this.userProfile.name = updatedProfile.target.elements[0].value;
+  //   this.userProfile.contact = updatedProfile.target.elements[1].value;
+  //   this.userProfile.bio = updatedProfile.target.elements[2].value;
+  //   this.router.navigate(["/profile"]);
+  //   // console.log(this.userProfile);
+  //   return this.userProfile;
+  // }
 
   editProfile(): void {
     this.router.navigate(["/edit-profile"]);

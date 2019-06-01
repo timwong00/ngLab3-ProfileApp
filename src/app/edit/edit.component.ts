@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ProfileService } from "../profile.service";
 
 @Component({
@@ -7,18 +7,18 @@ import { ProfileService } from "../profile.service";
   styleUrls: ["./edit.component.css"]
 })
 export class EditComponent implements OnInit {
-  profile: any;
+  userProfile: any;
   avatars: any[];
   constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    this.profile = this.profileService.getUserProfile();
+    this.userProfile = this.profileService.getUserProfile();
     this.avatars = this.profileService.getAvatars();
     // console.log(this.avatars);
   }
 
   setUserProfile(userProfile): void {
-    // console.log(userProfile);
+    console.log(userProfile);
     this.profileService.setUserProfile(userProfile);
   }
 
